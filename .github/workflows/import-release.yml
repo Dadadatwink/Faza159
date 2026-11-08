@@ -1,0 +1,24 @@
+name: Import verified website bundle
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".transfer-trigger"
+permissions:
+  contents: write
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download verified release bundle
+        run: |
+          curl -fL "https://sb-5zaetkok41bw.vercel.run/faza159-release.tar.gz" -o /tmp/faza159-release.tar.gz
+          tar -xzf /tmp/faza159-release.tar.gz -C .
+      - name: Commit website files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html manifest.webmanifest sw.js icon-192.png images/
+          git commit -m "Import verified Faza159 website release" || echo "No changes to commit"
+          git push
