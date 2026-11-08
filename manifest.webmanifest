@@ -9,16 +9,10 @@
   "description": "Электромонтажные работы и кондиционеры в Перми и Пермском крае.",
   "icons": [
     {
-      "src": "/icon-192.png?v=14",
-      "sizes": "180x180",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "/icon-gold.svg",
+      "src": "/icon-gold.svg?v=15",
       "sizes": "any",
       "type": "image/svg+xml",
-      "purpose": "maskable"
+      "purpose": "any maskable"
     }
   ]
 }
